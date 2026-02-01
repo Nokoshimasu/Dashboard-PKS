@@ -1,8 +1,36 @@
-# Webtech Projekt
+# Dashboard PKS
 
-## DB aufsetzen:
+Dieses Projekt ist im Rahmen der WebTechnologien Vorlesung entstanden. Es zeigt die Opferstatistik aus den Daten der Polizeilichen Kriminalstatistik für die Jahre 2023 und 2024 auf einer Karte im regionalen Vergleich. Man kann auch auf eine Diagramm Ansicht wechseln, wo man die beiden Jahre direkt vergleichen kann.
+
+## Tech Stack
+
+- PHP
+- JavaScript
+- CSS
+- HTML
+
+## Features
+
+- Datenbank anlegen und abfragen
+- Such- und Filterfunktionen
+- Daten anzeigen auf einer Karte / als Balkendiagramm
+
+## Screenshots
+
+![Map](assets/images/map.png)
+![Diagramm](assets/images/diagram.png)
+
+## Installation
+
+- Projekt in xampp\htdocs speichern
+- index.php in index\_.php umbenennen
+
+### DB aufsetzen
+
+- in xampp Apache und mySQL starten und zu phpmyAdmin navigieren
 - in phpmyAdmin die DB "straftaten_opfer" anlegen
 - mit dem folgenden Befehl die Tabelle erstellen:
+
 ```sql
 CREATE TABLE `pks_daten` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
@@ -37,14 +65,18 @@ CREATE TABLE `pks_daten` (
   `erwachsene_insg` INT,
   `erwachsene_m` INT,
   `erwachsene_w` INT,
-  INDEX (`ags`), 
+  INDEX (`ags`),
   INDEX (`straftat`),
   INDEX (`jahr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
-- dann index.php in index_.php umbenennen, um auf import.php (in db) zugreifen zu können
-- import.php im localhost ausführen (es sollten 2400 Zeilen importiert werden)
-- in import.php $year und $filename auf 2023 bzw 2024 ändern
-- nochmal import.php im localhost ausführen, um beide Jahre zu haben
-- index_.php wieder in index.php umbenennen
 
+- dann xampp\htdocs\projekt\index.php in index\_.php umbenennen, um auf import.php (in db) zugreifen zu können
+- import23.php und import24.php im localhost ausführen (es sollten je 2400 Zeilen importiert werden)
+- index\_.php wieder in index.php umbenennen
+
+## Learnings
+
+- Daten sind nicht immer korrekt, hier mussten die CSV Dateien manuell überprüft werden
+- Umgang mit Maps
+- Kommunikation mit Datenbank nach AJAX-Prinzip

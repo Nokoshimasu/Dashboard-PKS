@@ -16,16 +16,21 @@ let geojsonLayer;
 
 // 2. Farbskala definieren
 function getColor(d) {
-    return d > 50000 ? '#4a0000' :
-        d > 20000 ? '#67000d' :
-            d > 10000 ? '#800026' :
-                d > 5000 ? '#bd0026' :
-                    d > 1000 ? '#e31a1c' :
-                        d > 500 ? '#fc4e2a' :
-                            d > 200 ? '#fd8d3c' :
-                                d > 100 ? '#feb24c' :
-                                    d > 50 ? '#fed976' :
-                                        '#ffeda0';
+    return d > 50000 ? '#67000d' : 
+        d > 20000 ? '#800026' : 
+            d > 10000 ? '#a50f15' :    
+                d > 5000 ? '#cb181d' :     
+                    d > 1000 ? '#ef3b2c' :     
+                        d > 500 ? '#fb6a4a' :      
+                            d > 200 ? '#fc9272' :      
+                                d > 100 ? '#fcbba1' :      
+                                    d > 50 ? '#fee0d2' :       
+                                        d > 40 ? '#fff5f0' :       
+                                            d > 30 ? '#fff7bc' :       
+                                                d > 20 ? '#ffeda0' :       
+                                                    d > 10 ? '#ffffcc' :       
+                                                        d > 0 ?  '#ffffe5' :       
+                                                            '#ffffff';
 }
 
 // 3. Hauptfunktion
@@ -107,7 +112,7 @@ const legend = L.control({ position: 'bottomright' });
 
 legend.onAdd = function (map) {
     const div = L.DomUtil.create('div', 'info legend');
-    const grades = [0, 50, 100, 200, 500, 1000, 5000, 10000, 20000, 50000];
+    const grades = [1, 10, 30, 50, 100, 200, 500, 1000, 5000, 10000, 20000, 50000];
 
     div.innerHTML += '<b>Opferzahlen</b><br>';
 
